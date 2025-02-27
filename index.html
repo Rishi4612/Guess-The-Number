@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess The Number</title>
+  </head>
+
+  <!-- <style>
+    body {
+      background-color: rgb(6, 17, 51);
+      color: azure;
+    }
+    .wrapper {
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      font-size: larger;
+      font-weight: bolder;
+      font-style: italic;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form {
+      font-family: "Courier New", Courier, monospace;
+      font-style: normal;
+      color: yellow;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #guessField {
+      color: red;
+      font-size: 20px;
+      padding: 1px 5px;
+    }
+
+    #subt {
+      font-family: cursive;
+    }
+
+    .resultParas {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-style: normal;
+    }
+
+    .button {
+      padding: 10px;
+      color: chartreuse;
+      background-color: black;
+    }
+  </style> -->
+
+  <style>
+    body {
+      background: linear-gradient(
+        135deg,
+        #1e3c72,
+        #2a5298
+      ); /* Gradient background */
+      color: #f0f8ff; /* Light text color */
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Center Wrapper */
+    .wrapper {
+      background-color: rgba(
+        255,
+        255,
+        255,
+        0.1
+      ); /* Semi-transparent background */
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    /* Headings */
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    p {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    /* Form Styling */
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    #guessField {
+      font-size: 1.2rem;
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid #f0f8ff;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+      color: #333;
+    }
+
+    #guessField:focus {
+      border-color: #5ac0f1;
+      box-shadow: 0 0 5px #5ac0f1;
+    }
+
+    /* Submit Button */
+    #subt {
+      font-size: 1rem;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #5ac0f1;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #subt:hover {
+      background-color: #3a9dd9;
+      transform: scale(1.05);
+    }
+
+    /* Result Paragraphs Styling */
+    .resultParas {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .resultParas p {
+      font-size: 1rem;
+      color: #ffffff;
+    }
+
+    /* Low or High Hint */
+    .lowOrHi {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #f4e04d; /* Golden yellow hint color */
+    }
+
+    /* Previous Guesses and Remaining */
+    .guesses,
+    .lastResult {
+      font-weight: bold;
+      color: #f4e04d;
+    }
+
+    /* New Game Button */
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    #newGame {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #28a745; /* Green color */
+      color: white;
+      cursor: pointer;
+      display: none;
+      transition: all 0.3s ease;
+    }
+
+    #newGame:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
+  </style>
+
+  <body>
+    <div class="wrapper">
+      <h1>Number Guessing Game</h1>
+      <p>Try and guess a random number between 1 and 100.</p>
+      <p>You have 10 attempts to guess the right number.</p>
+
+      <br />
+
+      <form class="form">
+        <label for="guessField" id="guess">Guess A Number</label>
+        <input type="text" id="guessField" class="guessField" />
+        <input
+          type="submit"
+          id="subt"
+          value="Submit guess"
+          class="guessSubmit"
+        />
+      </form>
+      <div class="resultParas">
+        <p>Previous Guesses: <span class="guesses"></span></p>
+        <p>Guesses Remaining: <span class="lastResult">10</span></p>
+        <p class="lowOrHi"></p>
+      </div>
+      <div class="button-container">
+        <button id="newGame">Start New Game</button>
+      </div>
+    </div>
+  </body>
+  <script src="guessTheNumber.js"></script>
+</html>
